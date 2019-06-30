@@ -28,7 +28,7 @@
     </div>
 
     <div class="foot-out">
-      <div class="commit-btn">退出</div>
+      <div class="out-btn">退出</div>
     </div>
 
     <m-footer></m-footer>
@@ -137,6 +137,20 @@ export default {
         margin-left: 6px;
       }
     }
+  }
+  .out-btn{
+    position: fixed;
+    left: 4%;
+    bottom: 140px;
+    width: 92%;
+    display: inline-block;
+    font-size: 28px;
+    line-height: 90px;
+    height: 90px;
+    color: #26a2ff;
+    border:2px solid #26a2ff;
+    border-radius: 6px;
+    text-align: center;
   }
 }
 </style>
