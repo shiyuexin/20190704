@@ -11,8 +11,14 @@
         <div class="choose-item"><mt-switch v-model="automaticLogon">自动登录</mt-switch></div>
       </div>
       <div class="login-btn" @click="jumpTo">登 录</div>
-      <div class="forget-password">忘记密码</div>
+      <div class="forget-password" @click="registerPopupVisible = true">忘记密码</div>
     </div>
+    <!-- 忘记密码 弹出层 -->
+    <mt-popup v-model="registerPopupVisible" position="right" class="mint-popup-register" :modal="false">
+      <div class="m-header clear-float"><div class="title-text">忘记密码</div></div>
+      <div class="tel-num">客服电话 135 **** ****</div>
+      <div class="commit-btn" @click="registerPopupVisible = false">确定</div>
+    </mt-popup>
   </div>
 </template>
 
@@ -27,6 +33,7 @@ export default {
       password:'',//密码
       rememberPassword:false, // 记住密码
       automaticLogon:true,  // 自动登录
+      registerPopupVisible:false,//注册弹出
     };
   },
   methods:{
@@ -109,5 +116,11 @@ export default {
       text-align: center;
     }
   }
+}
+.mint-popup-register{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  .tel-num{font-size: 32px;color: #222;width: 100%;text-align: center;margin-top: 400px;}
 }
 </style>

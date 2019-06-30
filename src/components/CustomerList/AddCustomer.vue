@@ -29,7 +29,7 @@
       </div>
       <div class="message-box n-border">
         <div class="message-title">联系人</div>
-        <div class="message-conetnt c-blue">新增联系人</div>
+        <div class="message-conetnt c-blue" @click="addPeoplePopupVisible = true">新增联系人</div>
       </div>
       <div class="contacts-list">
         <div class="contacts-card">
@@ -49,10 +49,44 @@
     </div>
     <mt-popup class="popup-style" v-model="popupVisible" position="bottom">
       <div class="picker-toolbar">
-        <span class="mint-datetime-action mint-datetime-cancel" @click="popupVisible=false">取消</span>
-        <span class="mint-datetime-action mint-datetime-confirm" @click="getBabySex">确定</span>
+        <span class="mint-datetime-action mint-datetime-cancel" @click="popupVisible = false">取消</span>
+        <span class="mint-datetime-action mint-datetime-confirm" @click="popupVisible = false">确定</span>
       </div>
       <mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
+    </mt-popup>
+    <!-- 新增/编辑联系人 -->
+    <mt-popup v-model="addPeoplePopupVisible" position="right" class="add-people-popup-follow" :modal="false">
+      <div class="m-header clear-float"><div class="title-text">新增联系人</div></div>
+      <div class="content">
+        <div class="message-box">
+          <div class="message-title">姓名</div>
+          <div class="message-conetnt"><input placeholder="请输入联系人姓名"/></div>
+        </div>
+        <div class="message-box" @click="sexPopupVisible = true">
+          <div class="message-title">性别</div>
+          <div class="message-conetnt">{{newPeopleSex}}</div>
+        </div>
+        <div class="message-box">
+          <div class="message-title">职位</div>
+          <div class="message-conetnt"><input placeholder="请输入联系人职位"/></div>
+        </div>
+        <div class="message-box">
+          <div class="message-title">部门</div>
+          <div class="message-conetnt"><input placeholder="请输入联系人部门"/></div>
+        </div>
+        <div class="message-box">
+          <div class="message-title">手机号</div>
+          <div class="message-conetnt"><input placeholder="请输入联系人手机号"/></div>
+        </div>
+      </div>
+      <mt-popup class="popup-style" v-model="sexPopupVisible" position="bottom">
+        <div class="picker-toolbar">
+          <span class="mint-datetime-action mint-datetime-cancel" @click="sexPopupVisible = false">取消</span>
+          <span class="mint-datetime-action mint-datetime-confirm" @click="sexPopupVisible = false">确定</span>
+        </div>
+        <mt-picker :slots="sexSlots" @change="changeSex"></mt-picker>
+      </mt-popup>
+      <div class="commit-btn" @click="addPeoplePopupVisible= false">保存</div>
     </mt-popup>
   </div>
 </template>
@@ -71,6 +105,10 @@ export default {
       targetCustomer:false,//目标客户
       address:'',//详细地址
       defaultContact:false,//默认联系人
+      addPeoplePopupVisible:false,//新增编辑联系人弹窗控制
+      sexPopupVisible:false,//性别选择框显示控制
+      sexSlots:[{values: ['男','女'],defaultIndex:0}], 
+      newPeopleSex:'男'
     };
   },
   methods:{
@@ -78,10 +116,10 @@ export default {
     onValuesChange(picker, values) {
       this.customerLevel = values[0];
     },
-    // 获取级别
-    getBabySex(){
-      this.popupVisible = false;
-    }, 
+    // 切换性别
+    changeSex(picker, values){
+      this.newPeopleSex = values[0];
+    }
   },
   created(){}
 };
@@ -139,5 +177,25 @@ export default {
   }
   .popup-style{width: 100%;}
   .popup-style .sex-btn-box{text-align: right;padding: 3px 10px;}
+}
+.add-people-popup-follow{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  .content{
+    font-size: 30px;
+    .message-box{
+      width: 92%;
+      margin:0 auto;
+      height: 90px;
+      line-height: 90px;
+      border-bottom:1px solid #e5e5e5;
+      .message-title{display: inline-block}
+      .message-conetnt{
+        float: right;width: 50%;text-align: right;
+        input{text-align: right;font-size: 28px;}
+      }
+    }
+  }
 }
 </style>

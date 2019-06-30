@@ -7,7 +7,8 @@ import TrackingRecords from '@/components/CustomerList/TrackingRecords' //跟踪
 
 
 
-import InventoryList from '@/components/InventoryList/InventoryList'
+import InventoryList from '@/components/InventoryList/InventoryList'//库存列表页
+import AssetsDetail from '@/components/InventoryList/AssetsDetail'//资产详情页
 
 
 Vue.use(Router)
@@ -38,6 +39,12 @@ export default new Router({
       path: '/InventoryList',
       name: 'InventoryList',
       component: InventoryList
+    },
+    {
+      path: '/AssetsDetail',
+      name: 'AssetsDetail',
+      component: AssetsDetail
     }
+    
   ]
 })

@@ -52,23 +52,23 @@ export default {
   name: "CustomerList",
   data() {
     return {
-      selected:'1',
+      selected:'0',
       searchText:'',//搜索条件
       searchShow:false,//搜索是否显示
       dataArr:[
         // status 1-待开发 2-开发中 3-已完成
-        {name:'全部',id:'1',list:[
+        {name:'全部',id:'0',list:[
           {companyName:'北京捷达物流有限公司',status:'1',statusText:'待开发',detail:"战略客户-目标-公海"},
           {companyName:'北京捷达物流有限公司',status:'2',statusText:'开发中',detail:"战略客户-目标-公海"},
           {companyName:'北京捷达物流有限公司',status:'3',statusText:'已完成',detail:"战略客户-目标-公海"}
         ]},
-        {name:'待开发',id:'2',list:[
+        {name:'待开发',id:'1',list:[
           {companyName:'北京捷达物流有限公司',status:'1',statusText:'待开发',detail:"战略客户-目标-公海"},
         ]},
-        {name:'开发中',id:'3',list:[
+        {name:'开发中',id:'2',list:[
           {companyName:'北京捷达物流有限公司',status:'2',statusText:'开发中',detail:"战略客户-目标-公海"},
         ]},
-        {name:'已完成',id:'4',list:[
+        {name:'已完成',id:'3',list:[
           {companyName:'北京捷达物流有限公司',status:'3',statusText:'已完成',detail:"战略客户-目标-公海"}
         ]}
       ]

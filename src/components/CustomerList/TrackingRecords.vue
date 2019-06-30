@@ -94,8 +94,8 @@
     </mt-popup>
     <mt-popup class="popup-style" v-model="popupVisible" position="bottom">
       <div class="picker-toolbar">
-        <span class="mint-datetime-action mint-datetime-cancel" @click="popupVisible=false">取消</span>
-        <span class="mint-datetime-action mint-datetime-confirm" @click="getBabySex">确定</span>
+        <span class="mint-datetime-action mint-datetime-cancel" @click="popupVisible = false">取消</span>
+        <span class="mint-datetime-action mint-datetime-confirm" @click="popupVisible = false">确定</span>
       </div>
       <mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
     </mt-popup>
@@ -128,11 +128,7 @@ export default {
     // 切换级别
     onValuesChange(picker, values) {
       this.customerLevel = values[0];
-    },
-    // 获取级别
-    getBabySex(){
-      this.popupVisible = false;
-    }, 
+    } 
   },
   created(){}
 };
