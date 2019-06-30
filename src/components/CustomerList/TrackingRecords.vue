@@ -235,18 +235,6 @@ export default {
     }
   }
   .popup-style{width: 100%;}
-  .commit-btn{
-    position: fixed;
-    left: 3%;
-    bottom: 30px;
-    width: 94%;
-    color: #fff;
-    text-align: center;
-    height: 90px;
-    line-height: 90px;
-    font-size: 30px;
-    background: #26a2ff;
-    border-radius: 12px;
-  }
+ 
 }
 </style>
