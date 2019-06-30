@@ -7,7 +7,7 @@
         <div class="icon search-icon" @click="searchShow=!searchShow"></div>
       </div>
     </div>
-    <div class="search-box" v-if="searchShow" ><input v-model="searchText" placeholder="请输入搜索关键字"/></div>
+    <div class="search-box" v-if="searchShow" ><input @blur.prevent="blur()" v-model="searchText" placeholder="请输入搜索关键字"/></div>
     <!-- 列表内容 -->
     <div class="customer-list-content"> 
       <!-- 列表tab -->
@@ -75,6 +75,7 @@ export default {
     };
   },
   methods:{
+    blur:function(){scrollTo(0, pageYOffset)},
     //跳转编辑页面
     jumpToEdit(){
       this.$router.push({ path: '/AddCustomer',query:{type:'edit'}}); 

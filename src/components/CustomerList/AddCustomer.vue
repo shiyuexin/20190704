@@ -9,7 +9,7 @@
     <div class="add-customer-content">
       <div class="message-box">
         <div class="message-title">客户名称</div>
-        <div class="message-conetnt"><input v-model="customerName" placeholder="请输入客户名称"/></div>
+        <div class="message-conetnt"><input @blur.prevent="blur()" v-model="customerName" placeholder="请输入客户名称"/></div>
       </div>
       <div class="message-box" @click="popupVisible = true">
         <div class="message-title">客户级别</div>
@@ -25,7 +25,7 @@
       </div>
       <div class="message-box">
         <div class="message-title">详细地址</div>
-        <div class="message-conetnt"><input v-model="address" placeholder="请输入详细地址"/></div>
+        <div class="message-conetnt"><input @blur.prevent="blur()" v-model="address" placeholder="请输入详细地址"/></div>
       </div>
       <div class="message-box n-border">
         <div class="message-title">联系人</div>
@@ -42,7 +42,7 @@
           </div>
           <div class="contacts-bottom">
             <div class="bottom-left"><mt-switch v-model="defaultContact">设为默认</mt-switch></div>
-            <div class="bottom-right"><div>编辑</div> | <div>删除</div></div>            
+            <div class="bottom-right"><div @click="addPeoplePopupVisible = true">编辑</div> | <div>删除</div></div>            
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <div class="content">
         <div class="message-box">
           <div class="message-title">姓名</div>
-          <div class="message-conetnt"><input placeholder="请输入联系人姓名"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入联系人姓名"/></div>
         </div>
         <div class="message-box" @click="sexPopupVisible = true">
           <div class="message-title">性别</div>
@@ -68,15 +68,15 @@
         </div>
         <div class="message-box">
           <div class="message-title">职位</div>
-          <div class="message-conetnt"><input placeholder="请输入联系人职位"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入联系人职位"/></div>
         </div>
         <div class="message-box">
           <div class="message-title">部门</div>
-          <div class="message-conetnt"><input placeholder="请输入联系人部门"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入联系人部门"/></div>
         </div>
         <div class="message-box">
           <div class="message-title">手机号</div>
-          <div class="message-conetnt"><input placeholder="请输入联系人手机号"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入联系人手机号"/></div>
         </div>
       </div>
       <mt-popup class="popup-style" v-model="sexPopupVisible" position="bottom">
@@ -112,6 +112,7 @@ export default {
     };
   },
   methods:{
+    blur:function(){scrollTo(0, pageYOffset)},
     // 切换级别
     onValuesChange(picker, values) {
       this.customerLevel = values[0];
@@ -121,7 +122,9 @@ export default {
       this.newPeopleSex = values[0];
     }
   },
-  created(){}
+  created(){
+
+  }
 };
 </script>
 

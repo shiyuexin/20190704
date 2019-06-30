@@ -3,8 +3,8 @@
     <div class="login-content">
       <div class="login-title">鸿懋销售管理系统</div>
       <div class="input-box">
-        <div class="input-item user-message"><input v-model="userName" placeholder="请输入用户名"/></div>
-        <div class="input-item user-password"><input v-model="password" placeholder="请输入密码"/></div>
+        <div class="input-item user-message"><input @blur.prevent="blur()" v-model="userName" placeholder="请输入用户名"/></div>
+        <div class="input-item user-password"><input @blur.prevent="blur()" v-model="password" placeholder="请输入密码"/></div>
       </div>
       <div class="choose-box clear-float">
         <div class="choose-item"><mt-switch v-model="rememberPassword">记住密码</mt-switch></div>
@@ -37,7 +37,9 @@ export default {
     };
   },
   methods:{
+    blur:function(){scrollTo(0, pageYOffset)},
     jumpTo(){
+      localStorage.setItem('tab', '');
       this.$router.push({ path: '/CustomerList'}); 
     },
     requestDemo(){
@@ -60,6 +62,7 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/sass/mixin.scss";
 .login-page { //注释
+  position: relative;
   height: 100%; 
   width: 100%;
   .login-content{ 
@@ -79,7 +82,7 @@ export default {
       width: 100%;
       font-size: 28px;
       line-height: 90px;
-      input{font-size: 28px;}
+      input{font-size: 28px;height: 90px;line-height: 90px;width: 100%;}
       .input-item{
         width: 100%;
         border-bottom:1px solid #e5e5e5;

@@ -45,7 +45,7 @@ input:focus {
 .clear-float {
   zoom: 1
 }
-#app{height: 100%;width: 100%;}
+#app{height: 100%;width: 100%;position: absolute;top: 0;}
 .c-orange{color: orange !important;}
 .c-blue{color: #26a2ff !important;}
 .c-green{color: green !important;}
@@ -154,7 +154,7 @@ input:focus {
 
 
 .commit-btn{
-  position: fixed;
+  position: absolute;
   left: 3%;
   bottom: 30px;
   width: 94%;

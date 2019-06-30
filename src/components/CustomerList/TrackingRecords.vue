@@ -66,7 +66,7 @@
       <div class="content">
         <div class="message-box">
           <div class="message-title">任务名称</div>
-          <div class="message-conetnt"><input placeholder="请输入任务名称"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入任务名称"/></div>
         </div>
         <div class="message-box" @click="connectPeople = !connectPeople">
           <div class="message-title">关联人员</div>
@@ -87,7 +87,7 @@
         </div>
         <div class="message-box">
           <div class="message-title">说明信息</div>
-          <div class="message-conetnt"><input placeholder="请输入说明信息"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入说明信息"/></div>
         </div>
       </div>
       <div class="commit-btn" @click="fappointedPopupVisible= false">提交</div>
@@ -121,6 +121,7 @@ export default {
     };
   },
   methods:{
+    blur:function(){scrollTo(0, pageYOffset)},
     // 跳转查看详情
     jumpToDetail(){
       this.$router.push({ path: '/AddCustomer',query:{type:'edit'}}); 
@@ -189,7 +190,7 @@ export default {
     }
   }
   .bottom-btn{
-    position: fixed;
+    position: absolute;
     border-top: 2px solid #e5e5e5;
     width: 94%;
     bottom: 0;
