@@ -1,0 +1,153 @@
+/* css初始化样式 */
+html, body, header, footer, h1, h2, h3, h4, h5, h6, ul, ol, p, input,
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+  outline: none;
+}
+a{color: #fff;}
+a:link {color: #fff; text-decoration:none;} //未访问：蓝色、无下划线 
+a:active {color:  #fff; } //激活：红色 
+a:visited {color: #fff;text-decoration:none;} //已访问：purple、无下划线 
+a:hover {color:  #fff; text-decoration:underline;} //鼠标移近：红色、下划线 
+body {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  line-height: 1;
+}
+html,body{width: 100%;height: 100%;}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  outline: none;
+}
+input,textarea{border: none;-webkit-appearance: none;}
+input:focus,textarea:focus{outline-color: #fff;background: #fff;border: 0px solid #fff;}
+input:hover,textarea:hover{border: 0px solid #fff;}
+input:focus {
+  outline: none;
+}
+.clear-float:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0
+}
+
+.clear-float {
+  zoom: 1
+}
+#app{height: 100%;width: 100%;}
+.c-orange{color: orange !important;}
+.c-blue{color: #26a2ff !important;}
+.c-green{color: green !important;}
+.b-l-orange{border-left: 8px solid orange !important;}
+.b-l-blue{border-left: 8px solid #26a2ff !important;}
+.b-l-green{border-left: 8px solid green !important;}
+.dis-i-b{display: inline-block !important;}
+.float-l{float: left!important;}
+.float-r{float: right!important;}
+
+
+.mint-tabbar{
+  border-top: 1px solid #999;
+  background: #fff;
+}
+.mint-tab-item-icon{
+  width: 54px;
+  height: 54px;
+}
+
+.mint-tabbar > .mint-tab-item.is-selected{
+  background: #fff;
+}
+.mint-tab-item-label{
+  font-size: 22px;
+  color: #999;
+}
+.mint-tab-item.is-selected .mint-tab-item-label{
+  color: #26a2ff;
+}
+.mint-navbar .mint-tab-item{
+  padding: 30px 0;
+}
+.mint-navbar .mint-tab-item .mint-tab-item-label{
+  font-size: 28px;
+}
+.picker-toolbar{
+  height: 80px;
+}
+.mint-datetime-action{
+  font-size: 32px;
+  line-height: 80px;
+}
+.picker-item{
+  font-size: 32px;
+}
+.m-header{
+  height: 100px;
+  line-height: 100px;
+  width: 100%;
+  background: #26a2ff;
+  color: #fff;
+  text-align: center;
+  font-size: 36px;
+}
+.m-header .title-text{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.m-header .icon-box{
+  position: absolute;
+  right: 15px;
+  color: #fff;
+  font-size: 26px;
+}
+.m-header .icon{
+  height: 64px;
+  width: 64px;
+  margin-top: 18px;
+  display: inline-block;
+}
+.m-header .icon.add-icon{
+  background: url('../../../static/image/addition.png')no-repeat;
+  background-size: 100% 100%;
+}
+.m-header .icon.search-icon{
+  background: url('../../../static/image/search.png')no-repeat;
+  background-size: 100% 100%;
+}
+.search-box{
+  height: 72px;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+.search-box input{
+  height: 70px;
+  line-height: 70px;
+  width: 92%;
+  margin-left: 4%;
+  font-size: 26px;
+}
+.btn-primary{
+  display: inline-block;
+  font-size: 28px;
+  line-height: 60px;
+  width: 150px;
+  height: 60px;
+  color: #26a2ff;
+  border:2px solid #26a2ff;
+  border-radius: 6px;
+  text-align: center;
+  margin-right: 15px;
+}
