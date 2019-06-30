@@ -5,9 +5,12 @@ import App from './App'
 import router from './router'
 import 'lib-flexible'
 
+import CascadingPicker from 'cascading-picker'
+import 'cascading-picker/dist/CascadingPicker.css'
+
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.min.css';
-Vue.use(Mint);
+Vue.use(Mint,CascadingPicker);
 
 Vue.config.productionTip = false
 

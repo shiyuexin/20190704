@@ -19,9 +19,9 @@
         <div class="message-title">目标客户</div>
         <div class="message-conetnt"><mt-switch v-model="targetCustomer"></mt-switch></div>
       </div>
-      <div class="message-box">
+      <div class="message-box" @click="isPicker = true">
         <div class="message-title">省市区</div>
-        <div class="message-conetnt"></div>
+        <div class="message-conetnt">{{initial.first}}{{initial.second}}{{initial.third}}</div>
       </div>
       <div class="message-box">
         <div class="message-title">详细地址</div>
@@ -88,11 +88,24 @@
       </mt-popup>
       <div class="commit-btn" @click="addPeoplePopupVisible= false">保存</div>
     </mt-popup>
+    <CascadingPicker 
+        v-model="isPicker"
+        :data="addressData"
+        :initial="initial"
+        closeOnClickModal
+        @ok="selectAddress"
+        @cancel="cancelAddress"
+    />
   </div>
 </template>
 
 <script>
 import axs from "../../axios.service.js";
+import Vue from 'vue'
+import CascadingPicker from 'cascading-picker'
+import 'cascading-picker/dist/CascadingPicker.css'
+import addressData from 'cascading-picker/dist/AddressData'
+Vue.use(CascadingPicker);
 export default {
   name: "AddCustomer",
   data() {
@@ -108,7 +121,14 @@ export default {
       addPeoplePopupVisible:false,//新增编辑联系人弹窗控制
       sexPopupVisible:false,//性别选择框显示控制
       sexSlots:[{values: ['男','女'],defaultIndex:0}], 
-      newPeopleSex:'男'
+      newPeopleSex:'男',
+      isPicker: false,
+      addressData: addressData,
+      initial: {
+          first: '北京市',
+          second: '东城区',
+          third: ''
+      }
     };
   },
   methods:{
@@ -120,6 +140,17 @@ export default {
     // 切换性别
     changeSex(picker, values){
       this.newPeopleSex = values[0];
+    },
+    // 选择地址
+    selectAddress(res) {
+      this.addressProvice = res.first+','+res.second+','+res.third;
+      this.initial.first = res.first;
+      this.initial.second = res.second;
+      this.initial.third = res.third;
+    },
+    // 取消选择地址
+    cancelAddress() {   
+      console.log('你取消了地址选择器')
     }
   },
   created(){
@@ -201,4 +232,6 @@ export default {
     }
   }
 }
+
+
 </style>

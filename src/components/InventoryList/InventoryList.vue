@@ -95,7 +95,7 @@ export default {
   name: "CustomerList",
   data() {
     return {
-      selected:'1',
+      selected:'0',
       searchText:'',//搜索条件
       searchShow:false,//搜索是否显示
       dataArr:[

@@ -174,3 +174,19 @@ input:focus {
 }
 .tracking-records-page .mint-checkbox-core{width: 30px;height: 30px;margin: 17.5px 0;}
 .mint-checkbox-core:after{width: 8px;height: 16px;margin: 2px 5px;}
+.picker-item{
+  height: 75rem;
+}
+.picker-item .item{
+  font-size: 30px;
+    height: 75px;
+    line-height: 75px;
+}
+.picker-head{
+  font-size: 30px !important;
+  height: 40px;
+  line-height: 40px;
+}
+.mint-toast-text{
+  font-size: 32px !important;
+}
