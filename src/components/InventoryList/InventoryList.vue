@@ -209,10 +209,12 @@ export default {
     .item-card{
       width: 100%;
       margin-top: 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
       border-left: 8px solid orange;
-      border-top: 1px solid #e5e5e5;
-      border-right: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
+      border-top: 2px solid #e5e5e5;
+      border-right: 2px solid #e5e5e5;
+      border-bottom: 2px solid #e5e5e5;
       .card-title{
         width: 100%;
         background: #f2f2f2;

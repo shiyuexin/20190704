@@ -172,6 +172,7 @@ export default {
         width: 94%;
         padding: 15px 3%;
         border: 2px solid #e5e5e5;
+        border-radius: 10px;
         background: #f2f2f2;
         color: #222;
       }
