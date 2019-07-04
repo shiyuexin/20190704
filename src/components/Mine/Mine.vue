@@ -6,7 +6,7 @@
 
     <div class="mine-banner">
       <div class="portrait">
-        <img src="/static/image/My.png" alt="">
+        <img src="../../../static/image/My.png" alt="">
       </div>
       <div class="name">王小姐</div>
       <div class="desc">行政专员</div>

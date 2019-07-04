@@ -15,9 +15,9 @@ export default {
   data(){
     return {
       tabList:[
-        {name:'客户列表',id:'tab1',src:'/static/image/kehu.png',src1:'/static/image/kehu2.png',path:'/CustomerList'},
-        {name:'库存查询',id:'tab2',src:'/static/image/kucunguanli.png',src1:'/static/image/kucunguanli2.png',path:'/InventoryList'},
-        {name:'我的',id:'tab3',src:'/static/image/My.png',src1:'/static/image/My2.png',path:'/Mine'}
+        {name:'客户列表',id:'tab1',src:require('../../static/image/kehu.png'),src1:require('../../static/image/kehu2.png'),path:'/CustomerList'},
+        {name:'库存查询',id:'tab2',src:require('../../static/image/kucunguanli.png'),src1:require('../../static/image/kucunguanli2.png'),path:'/InventoryList'},
+        {name:'我的',id:'tab3',src:require('../../static/image/My.png'),src1:require('../../static/image/My2.png'),path:'/Mine'}
       ],
       selected:'tab1'
     }
