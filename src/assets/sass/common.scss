@@ -10,10 +10,10 @@ div {
   outline: none;
 }
 a{color: #fff;}
-a:link {color: #fff; text-decoration:none;} //未访问：蓝色、无下划线 
-a:active {color:  #fff; } //激活：红色 
-a:visited {color: #fff;text-decoration:none;} //已访问：purple、无下划线 
-a:hover {color:  #fff; text-decoration:underline;} //鼠标移近：红色、下划线 
+a:link {color: #fff; text-decoration:none;} //未访问：蓝色、无下划线
+a:active {color:  #fff; } //激活：红色
+a:visited {color: #fff;text-decoration:none;} //已访问：purple、无下划线
+a:hover {color:  #fff; text-decoration:underline;} //鼠标移近：红色、下划线
 body {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -178,7 +178,7 @@ input:focus {
   margin: 17.5px 0 !important;
 }
 .mint-checkbox-core:after{
-  width: 8px !important; 
+  width: 8px !important;
   height: 16px !important;
   margin: 2px 5px !important;
 }
@@ -192,7 +192,6 @@ input:focus {
 }
 .picker-head{
   font-size: 30px !important;
-  height: 40px !important;
   line-height: 40px !important;
 }
 .mint-toast-text{
