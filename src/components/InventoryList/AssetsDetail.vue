@@ -56,7 +56,7 @@ export default {
   name: "AssetsDetail",
   data() {
     return {
-      isLock:false,//锁定标示
+      isLock:this.$route.query.isLock+'' == '1' ? true : false,//锁定标示
     };
   },
   methods:{
@@ -67,10 +67,12 @@ export default {
         Toast('锁定成功');
       }
       this.isLock = !this.isLock;
-      
+
     }
   },
-  created(){}
+  created(){
+
+  }
 };
 </script>
 

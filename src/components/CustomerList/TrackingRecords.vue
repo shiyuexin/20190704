@@ -127,7 +127,8 @@ export default {
         descriptiveInformation:'',//指派任务说明信息
         time:''
       },
-      list:[{
+      list:[
+        {
         name:'张海鹏-华东区-上海分公司',
         time:'2018-06-22 10:55:36',
         customerLevel:'紧急',
@@ -144,16 +145,16 @@ export default {
   },
   methods:{
     // 日期格式化
-    formatDate(date) {  
-      var y = date.getFullYear();  
-      var m = date.getMonth() + 1;  
+    formatDate(date) {
+      var y = date.getFullYear();
+      var m = date.getMonth() + 1;
       var h = date.getHours();
       var f = date.getMinutes();
       var s = date.getSeconds();
-      m = m < 10 ? '0' + m : m;  
-      var d = date.getDate();  
-      d = d < 10 ? ('0' + d) : d;  
-      return y + '-' + m + '-' + d +' '+ h+':'+ f+':'+s;  
+      m = m < 10 ? '0' + m : m;
+      var d = date.getDate();
+      d = d < 10 ? ('0' + d) : d;
+      return y + '-' + m + '-' + d +' '+ h+':'+ f+':'+s;
     },
     blur:function(){scrollTo(0, pageYOffset)},
     // 跳转查看详情
@@ -170,7 +171,7 @@ export default {
       this.fappointedPopupVisible = true;
       this.assign.taskName = '';
       this.assign.connectPeopleName = this.connectPeopleName = ['张三'];
-      this.assign.customerLevel = this.customerLevel = '紧急';
+//      this.assign.customerLevel = this.customerLevel = '紧急';
       this.assign.descriptiveInformation = '';
     },
     //提交跟踪记录
@@ -203,8 +204,7 @@ export default {
 .tracking-records-page{
   .tracking-records-content{
     width: 94%;
-    margin:0 auto;
-    margin-bottom: 80px;
+    margin:0 auto 100px;
     .title-box{
       width: 100%;
       height: 100px;
@@ -257,6 +257,7 @@ export default {
   }
   .bottom-btn{
     position: fixed;
+    background: #fff;
     border-top: 2px solid #e5e5e5;
     width: 94%;
     bottom: 0;

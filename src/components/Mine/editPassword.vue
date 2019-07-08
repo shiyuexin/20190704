@@ -1,20 +1,16 @@
 <template>
   <div class="add-customer-page">
     <div class="m-header clear-float">
-      <div class="title-text">修改手机号</div>
+      <div class="title-text">修改密码</div>
     </div>
     <div class="content">
       <div class="message-box">
-        <div class="message-title">旧手机号</div>
-        <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入旧手机号"/></div>
+        <div class="message-title">原密码</div>
+        <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入原密码"/></div>
       </div>
       <div class="message-box">
-        <div class="message-title">新手机号</div>
-        <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入新手机号"/></div>
-      </div>
-      <div class="message-box">
-        <div class="message-title">密码</div>
-        <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入密码确认"/></div>
+        <div class="message-title">新密码</div>
+        <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入新密码"/></div>
       </div>
     </div>
     <div class="commit-btn" @click="saveMessage">确认修改</div>

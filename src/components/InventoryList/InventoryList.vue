@@ -7,7 +7,7 @@
       </div>
     </div>
     <!-- 列表内容 -->
-    <div class="customer-list-content"> 
+    <div class="customer-list-content">
       <!-- 列表tab -->
       <mt-navbar v-model="selected">
         <mt-tab-item v-for="(item,index) in dataArr" :key="index" :id=item.id>{{item.name}}</mt-tab-item>
@@ -22,10 +22,10 @@
             <!-- 单个card -->
             <div class="item-card" v-for="(card,index1) in item.list" :key="index1" :class="{'b-l-orange':card.status=='1','b-l-blue':card.status=='2','b-l-green':card.status=='3',}">
               <!-- card title -->
-              <div class="card-title" @click="jumpToEdit">
+              <div class="card-title" @click="jumpToEdit(card)">
                 <div class="card-box">
                   <div class="company-name">{{card.name}}</div>
-                  <div class="icon icon-lock" v-if="card.isLock"></div>
+                  <div class="icon icon-lock" v-if="card.isLock == '1'"></div>
                 </div>
               </div>
               <div class="card-content">
@@ -99,7 +99,7 @@ export default {
       searchText:'',//搜索条件
       searchShow:false,//搜索是否显示
       dataArr:[
-        // status 1-半挂车 2-集装箱 3-仓栅车     
+        // status 1-半挂车 2-集装箱 3-仓栅车
         // isLock 1锁定 2未锁定
         {name:'全部',id:'0',list:[
           {name:'铝合金集装箱运输半挂车',isLock:'1',status:'1',statusText:'半挂车',detail:["产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
@@ -121,10 +121,10 @@ export default {
       slots1:[{values: ['全部','半挂车','集装箱','仓栅车','其他'],defaultIndex:0}],
 
       productNum:'全部型号',//产品型号
-      slots2:[{values: ['全部型号','1231','12'],defaultIndex:0}], 
+      slots2:[{values: ['全部型号','1231','12'],defaultIndex:0}],
 
       tyre:'1',//轮胎
-      slots3:[{values: ['1','2','3'],defaultIndex:0}], 
+      slots3:[{values: ['1','2','3'],defaultIndex:0}],
 
       axle:'全部',//车轴
       slots4:[{values: ['全部'],defaultIndex:0}],
@@ -144,8 +144,8 @@ export default {
   },
   methods:{
     //跳转详情页
-    jumpToEdit(){
-      this.$router.push({ path: '/AssetsDetail',query:{type:'edit'}}); 
+    jumpToEdit(item){
+      this.$router.push({ path: '/AssetsDetail',query:{type:'edit',isLock:item.isLock}});
     },
     //选择类型方法
     chooseItem(type){

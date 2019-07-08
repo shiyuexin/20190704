@@ -4,6 +4,8 @@ import Login from '@/components/Login'
 import Mine from '@/components/Mine/Mine'
 import AddUser from '@/components/Mine/addUser'
 import EditTel from '@/components/Mine/editTel'
+import EditPassword from '@/components/Mine/editPassword'
+
 
 import CustomerList from '@/components/CustomerList/CustomerList' //客户列表
 import AddCustomer from '@/components/CustomerList/AddCustomer' //添加&编辑客户
@@ -63,7 +65,13 @@ export default new Router({
       path: '/EditTel',
       name: 'EditTel',
       component: EditTel
+    },
+    {
+      path: '/EditPassword',
+      name: 'EditPassword',
+      component: EditPassword
     }
-    
+
+
   ]
 })

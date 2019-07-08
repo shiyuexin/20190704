@@ -6,22 +6,23 @@
 
     <div class="mine-banner">
       <div class="portrait">
-        <img src="../../../static/image/My.png" alt="">
+        <input type="file" class="book-file" id="book-file" @change="show" name="bookimage">
+        <img id="book-pic" src="../../../static/image/My.png" alt="">
       </div>
       <div class="name">王小姐</div>
       <div class="desc">行政专员</div>
     </div>
 
     <div class="content">
-      <div class="info-li" @click="jumpTo">
+      <div class="info-li" @click="jumpTo('AddUser')">
         <span class="icon user"></span>
         <span class="info-text">个人信息</span>
       </div>
-      <div class="info-li" @click="jumpTo">
+      <div class="info-li"@click="jumpTo('EditTel')">
         <span class="icon phone"></span>
-        <span class="info-text">修改手机号</span>
+        <span class="info-text" >修改手机号</span>
       </div>
-      <div class="info-li" @click="jumpTo">
+      <div class="info-li" @click="jumpTo('EditPassword')">
         <span class="icon pw"></span>
         <span class="info-text">修改密码</span>
       </div>
@@ -42,14 +43,20 @@ export default {
   name: "Mine",
   components: {MFooter},
   data() {
-    return {};
+    return {
+      formData:new FormData(),
+      imgs: {},
+      imgLen:0,
+    };
   },
   methods:{
     //退出
     logout(){
-      this.$router.push({ path: '/'}); 
+      this.$router.push({ path: '/'});
     },
-    jumpTo(){},
+    jumpTo(address){
+      this.$router.push({ path: '/'+address});
+    },
     requestDemo(){
       axs.request(axs.common.getLesson2.url, {
             'birthday':'2019-1-1'
@@ -59,10 +66,24 @@ export default {
             }
         }).catch(() => {
       });
+    },
+    show(f) {
+      if (!f || !window.FileReader) return
+      var rd = new FileReader();//创建文件读取对象
+      var files = f.target.files[0];//获取file组件中的文件
+      rd.readAsDataURL(files);//文件读取装换为base64类型
+      rd.onloadend  = function(e) {
+        console.log(e);
+        //加载完毕之后获取结果赋值给img
+        document.getElementById("book-pic").src = this.result;
+      }
     }
   },
   created(){
     this.requestDemo();
+  },
+  mounted: function () {
+
   }
 };
 </script>
@@ -77,6 +98,7 @@ export default {
     padding-top: 50px;
     text-align: center;
     .portrait{
+      position: relative;
       width: 170px;
       height: 170px;
       border-radius: 170px;
@@ -86,6 +108,13 @@ export default {
       img{
         width: 100%;
         height: 100%;
+      }
+      .book-file{
+        opacity: 0;
+        width: 170px;
+        height: 170px;
+        position: absolute;
+        top:0;
       }
     }
     .name{
@@ -155,4 +184,5 @@ export default {
     text-align: center;
   }
 }
+
 </style>
