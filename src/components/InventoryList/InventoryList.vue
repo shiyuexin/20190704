@@ -25,7 +25,7 @@
               <div class="card-title" @click="jumpToEdit">
                 <div class="card-box">
                   <div class="company-name">{{card.name}}</div>
-                  <div class="icon icon-lock"></div>
+                  <div class="icon icon-lock" v-if="card.isLock"></div>
                 </div>
               </div>
               <div class="card-content">
@@ -99,17 +99,18 @@ export default {
       searchText:'',//搜索条件
       searchShow:false,//搜索是否显示
       dataArr:[
-        // status 1-半挂车 2-集装箱 3-仓栅车
+        // status 1-半挂车 2-集装箱 3-仓栅车     
+        // isLock 1锁定 2未锁定
         {name:'全部',id:'0',list:[
-          {name:'铝合金集装箱运输半挂车',status:'1',statusText:'半挂车',detail:["产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
-          {name:'铝合金集装箱',status:'3',statusText:'仓栅车',detail:["车轴：BPW 10吨","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
+          {name:'铝合金集装箱运输半挂车',isLock:'1',status:'1',statusText:'半挂车',detail:["产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
+          {name:'铝合金集装箱',isLock:'2',status:'3',statusText:'仓栅车',detail:["车轴：BPW 10吨","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
         ]},
         {name:'半挂车',id:'1',list:[
-          {name:'铝合金集装箱运输半挂车',status:'1',statusText:'半挂车',detail:["产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
+          {name:'铝合金集装箱运输半挂车',isLock:'1',status:'1',statusText:'半挂车',detail:["产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
         ]},
         {name:'集装箱',id:'2',list:[]},
         {name:'仓栅车',id:'3',list:[
-          {name:'铝合金集装箱',status:'3',statusText:'仓栅车',detail:["车轴：BPW 10吨","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
+          {name:'铝合金集装箱',status:'3',isLock:'2',statusText:'仓栅车',detail:["车轴：BPW 10吨","产品型号：MBS9403TJZLH","产品型号：MBS9403TJZLH"]},
         ]}
       ],
       currentNum:-1,//区分类型

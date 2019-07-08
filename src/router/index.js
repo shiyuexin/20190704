@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Mine from '@/components/Mine/Mine'
+import AddUser from '@/components/Mine/addUser'
+import EditTel from '@/components/Mine/editTel'
+
 import CustomerList from '@/components/CustomerList/CustomerList' //客户列表
 import AddCustomer from '@/components/CustomerList/AddCustomer' //添加&编辑客户
 import TrackingRecords from '@/components/CustomerList/TrackingRecords' //跟踪详情
@@ -50,6 +53,16 @@ export default new Router({
       path: '/Mine',
       name: 'Mine',
       component: Mine
+    },
+    {
+      path: '/AddUser',
+      name: 'AddUser',
+      component: AddUser
+    },
+    {
+      path: '/EditTel',
+      name: 'EditTel',
+      component: EditTel
     }
     
   ]
