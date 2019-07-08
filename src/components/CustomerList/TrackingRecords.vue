@@ -7,27 +7,15 @@
         <div class="btn-detail c-blue" @click="jumpToDetail">查看详情</div>
       </div>
       <div class="tracking-list">
-        <div class="tracking-card">
+        <div class="tracking-card" v-for="(item,index) in list" :key="index" :class="{'danger':item.customerLevel=='紧急'}">
           <div class="card-top">
-            <div class="charge-person float-l">张海鹏-华东区-上海分公司</div>
-            <div class="time float-r">2018-06-22 10:55:36</div>
+            <div class="charge-person float-l"><div class="danger-tip" v-if="item.customerLevel=='紧急'">紧急</div>{{item.name}}</div>
+            <div class="time float-r">{{item.time}}</div>
           </div>
-          <div class="car-message">
-            对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。
-            对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。
+          <div class="more-person" v-if="item.connectPeopleName.length>0">@
+            <div class="person-tip" v-for="(people,index1) in item.connectPeopleName" :key="index1">{{people}}</div>
           </div>
-        </div>
-        <div class="tracking-card danger">
-          <div class="card-top">
-            <div class="charge-person float-l"><div class="danger-tip">紧急</div>张海鹏-华东区-上海分公司</div>
-            <div class="time float-r">2018-06-22 10:55:36</div>
-          </div>
-          <div class="more-person">@<div class="person-tip">张三</div><div class="person-tip">李四</div></div>
-          <div class="car-message">
-            对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。
-            对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。
-          </div>
-          <div class="review-btn c-blue" @click="reviewPopupVisible = true">回复</div>
+          <div class="car-message">{{item.detail}}</div>
         </div>
       </div>
     </div>
@@ -66,7 +54,7 @@
       <div class="content">
         <div class="message-box">
           <div class="message-title">任务名称</div>
-          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入任务名称"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入任务名称" v-model="assign.taskName"/></div>
         </div>
         <div class="message-box" @click="connectPeople = !connectPeople">
           <div class="message-title">关联人员</div>
@@ -87,7 +75,7 @@
         </div>
         <div class="message-box">
           <div class="message-title">说明信息</div>
-          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入说明信息"/></div>
+          <div class="message-conetnt"><input @blur.prevent="blur()" placeholder="请输入说明信息" v-model="assign.descriptiveInformation"/></div>
         </div>
       </div>
       <div class="commit-btn" @click="fappointedPopupVisible= false">提交</div>
@@ -118,18 +106,38 @@ export default {
       connectPeople:false,//关联人员是否显示
       connectPeopleArr:['张三', '李四', '王五'],
       connectPeopleName:['张三'],//关联人员name
+      assign:{
+        taskName:'', //指派任务名称
+        connectPeopleName:[],//指派关联人员
+        customerLevel:'',//客户级别
+        descriptiveInformation:'',//指派任务说明信息
+      },
+      list:[{
+        name:'张海鹏-华东区-上海分公司',
+        time:'2018-06-22 10:55:36',
+        customerLevel:'紧急',
+        connectPeopleName:['张三', '李四'],
+        detail:'对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。'
+      },{
+        name:'张海鹏-华东区-上海分公司',
+        time:'2018-06-22 10:55:36',
+        customerLevel:'',
+        connectPeopleName:[],
+        detail:'对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。对方总经理见面，午饭，下半年会有计划采购40尺柜，需要紧密跟进。下个月继续拜访。'
+      }]
     };
   },
   methods:{
     blur:function(){scrollTo(0, pageYOffset)},
     // 跳转查看详情
     jumpToDetail(){
-      this.$router.push({ path: '/AddCustomer',query:{type:'edit'}}); 
+      this.$router.push({ path: '/AddCustomer',query:{type:'edit'}});
     },
     // 切换级别
     onValuesChange(picker, values) {
       this.customerLevel = values[0];
-    } 
+      this.assign.customerLevel = value[0];
+    }
   },
   created(){}
 };
@@ -160,7 +168,7 @@ export default {
         line-height: 60px;
         height: 60px;font-size: 26px;color: #999;
         .time{font-size: 24px;}
-      } 
+      }
       .more-person{
         margin: 15px;
         .person-tip{display: none;color: #222;background: #f2f2f2;height: 40px;line-height: 40px;border-radius: 5px;margin-left: 8px;width: 80px;text-align: center;border:2px solid #999;}
@@ -233,6 +241,6 @@ export default {
     }
   }
   .popup-style{width: 100%;}
- 
+
 }
 </style>
