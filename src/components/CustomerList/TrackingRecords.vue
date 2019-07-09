@@ -203,8 +203,10 @@ export default {
 <style lang="scss" scoped>
 .tracking-records-page{
   .tracking-records-content{
-    width: 94%;
-    margin:0 auto 100px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 3% 120px 3%; 
+    overflow-y:scroll;
     .title-box{
       width: 100%;
       height: 100px;
